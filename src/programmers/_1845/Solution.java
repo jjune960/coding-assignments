@@ -15,8 +15,8 @@ class Solution {
                 count[n] = count[n-1] + 1;
             else
                 count[n] = 0;
-            for (; count[n] < last - n; count[n]++) {
-
+            for (; count[n] < last + n; count[n]++) {
+                nums[count[n]];
             }
         }
 
