@@ -1,22 +1,26 @@
 package programmers._42576;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
         String answer = "";
 
-        List<String> participantArray = new ArrayList<>();
-        List<String> completionArray = new ArrayList<>();
+        Map<String, Integer> professor = new HashMap<>();
+        for(String p : participant) { // 초기 값 설정 및 동명이인 카운트
+            professor.put(p,professor.getOrDefault(p, 0) + 1);
+        }
 
-        participantArray.addAll(Arrays.asList(participant));
-        completionArray.addAll(Arrays.asList(completion));
+        for(String c : completion) { // 완주 카운트
+            professor.put(c, professor.get(c)-1);
+        }
 
-        participantArray.removeAll(completionArray);
-
-        answer = participantArray.toString();
+        for(String s : professor.keySet()) { //key를 모두 불러와 미완주자 걸러내기
+            if(professor.get(s)!=0) {
+                answer = s;
+            }
+        }
 
         return answer;
     }
