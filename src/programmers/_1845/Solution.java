@@ -1,34 +1,21 @@
 package programmers._1845;
 
+import java.util.HashSet;
+import java.util.Set;
+
 class Solution {
     public int solution(int[] nums) {
         int answer = 0;
 
-        int last = nums.length/2;
+        int max = nums.length/2; // 선택 가능한 최대의 폰켓몬 수
 
-        int[] count = new int[last];
+        Set<Integer> pokemonset = new HashSet<>(); // 같은 종류를 1개만 남기기 위해 Set 사용
 
-        //count[] = 0;
-
-        for (int n = 0; n < last; n++) {
-            if (n != 0)
-                count[n] = count[n-1] + 1;
-            else
-                count[n] = 0;
-            for (; count[n] < last + n; count[n]++) {
-                nums[count[n]];
-            }
+        for (int num : nums) {
+            pokemonset.add(num);
         }
 
-
-//        for (count[0] = 0; count[0] < last; count[0]++) {
-//            for (int n = 1; n < last; n++) {
-//                for (count[n] = count[n-1] + 1; count[n] < nums.length - 1; count[n]++) {
-//
-//                }
-//            }
-//
-//        }
+        answer = Math.min(max, pokemonset.size()); // 선택 가능한 최대의 폰켓몬 수와 같은 종류의 수 중 작은 수 선택
 
         return answer;
     }
