@@ -14,9 +14,10 @@ class Solution {
                 tempnum = tempnum / 10;
                 count++;
             }
-//            for(int i = 0; i < count; i++) { //
-//
-//            }
+            tempnum = number; // 임시 변수 다시 사용
+            for(int i = 0; i < count; i++) { // 카운트한 개수의 바로 직전 까지만 계산하면
+                tempnum = tempnum / 10;
+            }
 
 //            if ()
         }
