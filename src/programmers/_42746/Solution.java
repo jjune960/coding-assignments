@@ -21,6 +21,10 @@ class Solution {
 
         if (numStrs[0].equals("0")) { // 가장 큰 숫자가 0인 경우
             answer = "0";
+        } else {
+            for (String num : numStrs) { // 문자열 이어 붙이기
+                answer += num;
+            }
         }
 
         return answer;
