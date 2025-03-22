@@ -1,4 +1,4 @@
-//package programmers._42746;
+package programmers._42746;
 
 import java.util.Arrays;
 import java.util.Comparator;
