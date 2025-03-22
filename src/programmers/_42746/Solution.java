@@ -1,9 +1,9 @@
-package programmers._42746;
+//package programmers._42746;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
-class Solution {
+public class Solution {
     public String solution(int[] numbers) {
         String answer = "";
 
@@ -29,4 +29,12 @@ class Solution {
 
         return answer;
     }
+
+    // 테스트용 main 메서드
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        String result = sol.solution(new int[]{3, 30, 34, 5, 9});
+        System.out.println(result);
+    }
 }
+
