@@ -8,16 +8,31 @@ class Solution {
         int[] answer;
         ArrayList<Integer> answerList = new ArrayList<>();
 
-        //int answerindex = 0;
+        int progressesindex = 0;
 
-        while(true) {
+        int answercount = 1;
+        boolean ansbool = true; // 신규 배포 여부
+
+        while(progressesindex < progresses.length) {
             for (int i = 0; i < progresses.length; i++) {
                 progresses[i] += speeds[i];
             }
 
-            if(progresses[0] >= 100) {
-                answerList.add(1);
-                break;
+            if(progresses[progressesindex] >= 100) {
+                if (ansbool) { // 새로운 배포
+                    answerList.add(answercount);
+                    ansbool = false;
+                    System.out.println(answerList.size() + "a");
+
+                }
+                else { // 연속 배포
+                    answerList.set(answerList.size() - 1, ++answercount);
+                    System.out.println(answerList.size() + "b");
+                }
+                progressesindex++;
+            } else {
+                ansbool = true;
+                answercount = 1;
             }
         }
 
@@ -32,7 +47,7 @@ class Solution {
         Solution sol = new Solution();
 
         String result = Arrays.toString(sol.solution
-                (new int[]{99, 30, 55}, new int[]{1, 30, 5}));
+                (new int[]{93, 30, 55}, new int[]{1, 30, 5}));
 
         System.out.println(result);
     }
