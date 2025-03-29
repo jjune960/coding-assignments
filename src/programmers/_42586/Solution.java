@@ -14,20 +14,22 @@ class Solution {
         boolean ansbool = true; // 신규 배포 여부
 
         while(progressesindex < progresses.length) {
-            for (int i = 0; i < progresses.length; i++) {
-                progresses[i] += speeds[i];
+            if(ansbool) {
+                for (int i = 0; i < progresses.length; i++) {
+                    progresses[i] += speeds[i];
+                }
             }
 
             if(progresses[progressesindex] >= 100) {
                 if (ansbool) { // 새로운 배포
                     answerList.add(answercount);
                     ansbool = false;
-                    System.out.println(answerList.size() + "a");
+                    //System.out.println(answerList.size() + "a " + progressesindex);
 
                 }
                 else { // 연속 배포
                     answerList.set(answerList.size() - 1, ++answercount);
-                    System.out.println(answerList.size() + "b");
+                    //System.out.println(answerList.size() + "b " + progressesindex);
                 }
                 progressesindex++;
             } else {
@@ -36,7 +38,7 @@ class Solution {
             }
         }
 
-        System.out.println(Arrays.toString(progresses));
+        //System.out.println(Arrays.toString(progresses));
 
         answer = answerList.stream().mapToInt(Integer::intValue).toArray();
 
