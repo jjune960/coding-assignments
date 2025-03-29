@@ -5,17 +5,20 @@ import java.util.Arrays;
 
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
-        int[] answer = {};
+        int[] answer;
         ArrayList<Integer> answerList = new ArrayList<>();
 
         //int answerindex = 0;
 
-        for (int i = 0; i < progresses.length; i++) {
-            progresses[i] += speeds[i];
-        }
+        while(true) {
+            for (int i = 0; i < progresses.length; i++) {
+                progresses[i] += speeds[i];
+            }
 
-        if(progresses[0] >= 100) {
-            answerList.add(1);
+            if(progresses[0] >= 100) {
+                answerList.add(1);
+                break;
+            }
         }
 
         System.out.println(Arrays.toString(progresses));
