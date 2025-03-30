@@ -19,7 +19,8 @@ class Solution {
         int prepriorty = 0; // 이전 큐의 우선순위
 
         while (true) {
-
+            if(index >= max)
+                max = 0;
         }
 
         return answer;
