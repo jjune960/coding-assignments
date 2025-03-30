@@ -14,6 +14,14 @@ class Solution {
 
         System.out.println(priortyqueue);
 
+        int index = 0; // 인덱스 기록용
+        int max = priorities.length; // 배열 크기(인덱스 파악용)
+        int prepriorty = 0; // 이전 큐의 우선순위
+
+        while (true) {
+
+        }
+
         return answer;
     }
 
