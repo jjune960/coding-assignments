@@ -9,19 +9,36 @@ class Solution {
         int answer = 0;
 
         Deque<Integer> priortyqueue = new ArrayDeque<>();
+        //Deque<Integer>
 
         priortyqueue.addAll(Arrays.stream(priorities).boxed().toList());
+
 
         System.out.println(priortyqueue);
 
         int index = 0; // 인덱스 기록용
         int max = priorities.length; // 배열 크기(인덱스 파악용)
         int prepriorty = 0; // 이전 큐의 우선순위
+        int i = 0;
 
         while (true) {
             if(index >= max)
                 max = 0;
+
+            int priorty = priortyqueue.removeFirst();
+
+            if(priorty > prepriorty) {
+                prepriorty = priorty;
+                //answer = index;
+                priortyqueue.addLast(priorty);
+            }
+            else {
+                priortyqueue.addFirst(priorty);
+            }
+
+            index++;
         }
+        //System.out.println(priortyqueue);
 
         return answer;
     }
