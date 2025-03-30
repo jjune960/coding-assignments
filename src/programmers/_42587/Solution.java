@@ -1,6 +1,7 @@
 package programmers._42587;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Deque;
 
 class Solution {
@@ -9,6 +10,17 @@ class Solution {
 
         Deque<Integer> priortyqueue = new ArrayDeque<>();
 
+        priortyqueue.addAll(Arrays.stream(priorities).boxed().toList());
+
+        System.out.println(priortyqueue);
+
         return answer;
     }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        int result = sol.solution(new int[]{2, 1, 3, 2}, 2);
+        System.out.println(result);
+    }
 }
+
