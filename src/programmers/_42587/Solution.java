@@ -24,6 +24,16 @@ class Solution {
                     break;
                 }
             }
+
+            if (!isHighest) {
+                processDeque.offer(current);
+            } else {
+                // 문서를 출력 처리(카운트 증가)
+                answer++;
+                if (current == location) {
+                    return answer;
+                }
+            }
         }
 
         return answer;
