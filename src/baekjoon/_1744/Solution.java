@@ -11,6 +11,7 @@ public class Solution {
     public static void main(String[] args) throws IOException {
         PriorityQueue<Integer> sequences = new PriorityQueue<>();
         int sum = 0;
+        boolean isZero = false;
 
         ArrayDeque<Integer> minusqueue = new ArrayDeque<>();
         ArrayDeque<Integer> overtwoqueue = new ArrayDeque<>();
@@ -30,6 +31,8 @@ public class Solution {
                 minusqueue.addFirst(num);
             } else if (num >= 2){
                 overtwoqueue.addFirst(num);
+            } else if (num == 0) {
+                isZero = true;
             } else { // 0 or 1
                 sum += num; // 무조건 더하는 것이 유리하므로 sum에 바로 더함
             }
@@ -38,21 +41,11 @@ public class Solution {
         int num1;
         int num2;
 
-//        System.out.println("음수");
-//        while(minusqueue.size() > 0) {
-//            System.out.println(minusqueue.removeFirst());
-//        }
-//
-//        System.out.println("2 이상");
-//
-//        while(overtwoqueue.size() > 0) {
-//            System.out.println(overtwoqueue.removeLast());
-//        }
-
         while(minusqueue.size() > 0) { // 음수
             num1 = minusqueue.removeFirst();
             if (minusqueue.size() == 0){
-                sum += num1;
+                if(!isZero)
+                    sum += num1;
             }
             else {
                 num2 = minusqueue.removeFirst();
