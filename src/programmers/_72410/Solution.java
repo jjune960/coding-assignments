@@ -11,7 +11,7 @@ class Solution {
         Pattern pattern = Pattern.compile("^$");
         Matcher matcher = pattern.matcher(new_id);
 
-        matcher.
+        //matcher.
 
         return answer;
     }

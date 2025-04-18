@@ -28,9 +28,9 @@ public class Solution {
         for (int i = 0; i < N; i++) { // sequences 숫자 구분
             int num = sequences.remove();
             if(num < 0) {
-                minusqueue.addFirst(num);
+                minusqueue.addLast(num);
             } else if (num >= 2){
-                overtwoqueue.addFirst(num);
+                overtwoqueue.addLast(num);
             } else if (num == 0) {
                 isZero = true;
             } else { // 0 or 1
