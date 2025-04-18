@@ -11,9 +11,7 @@ public class Solution {
     public static void main(String[] args) throws IOException {
         PriorityQueue<Integer> sequences = new PriorityQueue<>();
         int sum = 0;
-        int minus = 0;
-        int overtwo = 0;
-        //int[] minusary;
+
         ArrayDeque<Integer> minusqueue = new ArrayDeque<>();
         ArrayDeque<Integer> overtwoqueue = new ArrayDeque<>();
 
@@ -30,44 +28,46 @@ public class Solution {
             int num = sequences.remove();
             if(num < 0) {
                 minusqueue.addFirst(num);
-            } else if (num > 2){
+            } else if (num >= 2){
                 overtwoqueue.addFirst(num);
             } else { // 0 or 1
                 sum += num; // 무조건 더하는 것이 유리하므로 sum에 바로 더함
             }
         }
 
-        if(minusqueue.size() != 0){ // 음수인 경우
-            int num1;
-            int num2;
-            int size = minusqueue.size();
+        int num1;
+        int num2;
 
-            for(int i = 0; i < size; i=i+2) {
-                num1 = minusqueue.removeLast();
-                num2 = minusqueue.removeLast();
+//        System.out.println("음수");
+//        while(minusqueue.size() > 0) {
+//            System.out.println(minusqueue.removeFirst());
+//        }
+//
+//        System.out.println("2 이상");
+//
+//        while(overtwoqueue.size() > 0) {
+//            System.out.println(overtwoqueue.removeLast());
+//        }
 
-                sum += num1 + num2;
+        while(minusqueue.size() > 0) { // 음수
+            num1 = minusqueue.removeFirst();
+            if (minusqueue.size() == 0){
+                sum += num1;
             }
-
-            if(minusqueue.size()/2 == 1) {
-                sum += minusqueue.removeLast();
+            else {
+                num2 = minusqueue.removeFirst();
+                sum += num1 * num2;
             }
         }
 
-        if(overtwoqueue.size() != 0){ // 2이상(양수)인 경우
-            int num1;
-            int num2;
-            int size = overtwoqueue.size();
-
-            for(int i = 0; i < size; i=i+2) {
-                num1 = overtwoqueue.removeFirst();
-                num2 = overtwoqueue.removeFirst();
-
-                sum += num1 + num2;
+        while(overtwoqueue.size() > 0) { // 2 이상
+            num1 = overtwoqueue.removeLast();
+            if (overtwoqueue.size() == 0){
+                sum += num1;
             }
-
-            if(overtwoqueue.size()/2 == 1) {
-                sum += overtwoqueue.removeFirst();
+            else {
+                num2 = overtwoqueue.removeLast();
+                sum += num1 * num2;
             }
         }
 
