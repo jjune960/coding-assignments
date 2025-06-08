@@ -23,6 +23,10 @@ public class Main  {
         }
 
         for(int i = 0; i < count; i++) {
+            if (r[i] < 0 || n[i] < r[i]) {
+                System.out.println(0);
+                continue;
+            }
             tempn = n[i];
             tempnminr = n[i] - r[i];
 
