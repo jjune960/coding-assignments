@@ -65,7 +65,7 @@ public class Main {
 
         // 다익스트라 값에 -1이 있는지(목적지 도달이 가능한지) 검사
         // 크기 비교 없음
-        if (d1 >= 0 && d2 >= 0 && d3 >= 0 && d1 + d2 + d3 >= d4 + d5 + d6) { // 1 -> v1 -> v2 -> N
+        if (d1 >= 0 && d2 >= 0 && d3 >= 0 && d1 + d2 + d3 <= d4 + d5 + d6) { // 1 -> v1 -> v2 -> N
             System.out.println(d1+d2+d3);
         } else if (d4 >= 0 && d5 >= 0 && d6 >= 0) { // 1 -> v2 -> v1 -> N
             System.out.println(d4+d5+d6);
